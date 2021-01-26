@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class CreateMembersTable extends Migration
 {
@@ -34,7 +34,7 @@ class CreateMembersTable extends Migration
             $table->enum('visit_ptd', ['0', '1'])->default('0');
             $table->unsignedTinyInteger('ageband')->nullable();
             $table->string('country')->nullable();
-            $table->enum('experience', ['P','A','B','N'])->nullable();
+            $table->enum('experience', ['P', 'A', 'B', 'N'])->nullable();
             $table->tinyInteger('bt_start_hour')->default(18);
             $table->tinyInteger('bt_start_min')->default(30);
             $table->tinyInteger('bt_end_hour')->default(21);
