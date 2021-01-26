@@ -83,6 +83,7 @@
         "league/oauth2-client": "^2.4",
         "maatwebsite/excel": "~3.1.17",
         "malahierba-lab/public-id": "dev-main",
+        "nunomaduro/collision": "^5.3",
         "ohdearapp/ohdear-php-sdk": "^3.0",
         "planetteamspeak/ts3-php-framework": "dev-master#9e987b61b8e559b4219d30b140b8edbeb94edece",
         "predis/predis": "^1.1",
@@ -99,6 +100,7 @@
     },
     "require-dev": {
         "ext-json": "*",
+        "brianium/paratest": "^6.1",
         "codedungeon/phpunit-result-printer": "^0.29.3",
         "facade/ignition": "^2.3.6",
         "fzaninotto/faker": "~1.8",

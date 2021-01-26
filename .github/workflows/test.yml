@@ -158,9 +158,13 @@ jobs:
       - name: Publish Telescope
         run: php artisan telescope:publish
 
-      # Run Database Migration
-      - name: Migrate Database
+      # Run Core Database Migration
+      - name: Migrate Core Database
         run: php artisan migrate
+
+      # Run CTS Database Migration
+      - name: Migrate CTS Database
+        run: php artisan migrate --path=database/migrations/cts
 
       # Cache Setup
       - name: Cache Routes
@@ -179,7 +183,7 @@ jobs:
 
       # Run Tests
       - name: Execute PHPUnit Tests With Coverage
-        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+        run: php artisan test --parallel
 
       # Run Coverage Suite
       - name: Upload Code Coverage

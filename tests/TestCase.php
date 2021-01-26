@@ -7,7 +7,6 @@ use App\Models\Mship\Account;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Spatie\Permission\Models\Role;
-use Tests\Database\MockCtsDatabase;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -34,9 +33,6 @@ abstract class TestCase extends BaseTestCase
         Carbon::setTestNow(Carbon::now());
         $this->knownDate = Carbon::now();
 
-        // Create tables for other services
-        $this->seedLegacyTables();
-
         // Force regeneration of permissions cache
         app()['cache']->forget('spatie.permission.cache');
         $this->app->make(\Spatie\Permission\PermissionRegistrar::class)->registerPermissions();
@@ -54,26 +50,6 @@ abstract class TestCase extends BaseTestCase
         $user = factory(Account::class)->create();
         $user->assignRole(Role::findByName('privacc'));
         $this->privacc = $user->fresh();
-    }
-
-    protected function seedLegacyTables()
-    {
-        if (! method_exists($this, 'beginDatabaseTransaction')) {
-            return;
-        }
-
-        $this->dropLegacyTables();
-
-        MockCtsDatabase::create();
-    }
-
-    protected function dropLegacyTables()
-    {
-        if (! method_exists($this, 'beginDatabaseTransaction')) {
-            return;
-        }
-
-        MockCtsDatabase::destroy();
     }
 
     public function markNovaTest()
