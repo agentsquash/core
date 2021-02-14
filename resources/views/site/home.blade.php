@@ -308,7 +308,7 @@
 <!-- Sidebar Content [END] -->
 
 <!-- UK Header [START] -->
-<header class="header text-white h-fullscreen pb-5" data-jarallax-video="mp4:videos/ctp.mp4" data-overlay="5">
+<header class="header text-white h-fullscreen pb-5" data-jarallax-video="mp4:videos/area_timelapse.mp4" data-overlay="5">
     <div class="overlay opacity-55" style="background-color: #17375E"></div>
 
     <div class="container">
